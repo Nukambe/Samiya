@@ -1,4 +1,6 @@
 'use strict';
+const bcrypt = require('bcryptjs');
+
 const {
   Model
 } = require('sequelize');
@@ -63,7 +65,8 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.prototype.validatePassword = function (password) {
-    return bcrypt.compareSync(password, this.password.toString());
+    console.log(this);
+    return bcrypt.compareSync(password, this.hashedPassword.toString());
   };
 
   User.getCurrentUserById = async function (id) {
@@ -81,8 +84,8 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.signup = async function ({ username, password }) {
-    password = bcrypt.hashSync(password);
-    const user = await User.create({ username, password });
+    hashedPassword = bcrypt.hashSync(password);
+    const user = await User.create({ username, hashedPassword });
     return await User.scope("currentUser").findByPk(user.id);
   };
 
