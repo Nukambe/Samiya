@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import { restoreCSRF, csrfFetch } from './features/csrf/csrf';
 import * as sessionActions from './features/session/session';
+import { MediaQueryProvider } from './context/MediaQueries';
 import App from './App';
 import './index.css';
 
@@ -20,10 +21,12 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
+    <MediaQueryProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </MediaQueryProvider>
   </React.StrictMode>
 );
