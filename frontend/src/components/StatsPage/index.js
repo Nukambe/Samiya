@@ -14,20 +14,22 @@ export default function StatsPage() {
     ]);
 
     return (
-        <div className="stats-container">
+        <div className="stats-container" id='stats'>
             <div style={{
-                width: '80%',
-                height: '400px',
+                width: '60%',
+                minHeight: '400px',
                 backgroundColor: 'rgba(0, 255, 255, 0.2)',
                 margin: 'auto auto',
                 borderRadius: '20px',
                 boxShadow: '2px 2px 10px black',
-                padding: '64px'
+                padding: '64px',
+                color: 'white',
+                zIndex: '2'
             }}>
                 <h2 style={{
                     margin: '0 36px',
-                    padding: '32px 32px 16px',
-                    borderBottom: '1px solid gray'
+                    padding: '32px 0px 16px',
+                    borderBottom: '1px solid white'
                 }}>Stats</h2>
                 <ul style={{
                     padding: '0 36px'
