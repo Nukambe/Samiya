@@ -1,5 +1,6 @@
 import React from 'react';
 import MediaQueryContext from '../../context/MediaQueries';
+import PageContainer from '../PageContainer';
 import './index.css';
 import Arrow from '../../assets/down-arrow.png';
 
@@ -7,8 +8,11 @@ export default function LandingPage() {
     const mediaQueries = React.useContext(MediaQueryContext);
 
     return (
-        <>
-            <div className='landing-container' id='home'>
+        <PageContainer
+            id={'landing'}
+            top={-56}
+            background={"linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url('https://img.olympics.com/images/image/private/t_s_w1340/t_s_16_9_g_auto/f_auto/v1536936974/primary/exvzqcvorticinejmmel')"}
+        >
                 <div className='landing-content'
                     style={{
                         width: '80%',
@@ -44,7 +48,6 @@ export default function LandingPage() {
                     left: '50%',
                     width: '64px',
                 }} />
-            </div>
-        </>
+                </PageContainer>
     );
 };
